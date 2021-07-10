@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "root",
+    "password": "nviera@123",
+    "database": "scheduler_dev",
+    "host": "127.0.0.1",
+    "port": 3306,
+    "dialect": "mariadb",
+    "dialectOptions": { "autoJsonMap": false }
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "scheduler_test",
+    "host": "127.0.0.1",
+    "dialect": "mariadb"
+  },
+  "production": {
+    "username": "traciex",
+    "password": "HealthX!Chain123BLR",
+    "database": "traciex",
+    "host": "10.2.1.4",
+    "port": 3306,
+    "dialect": "mariadb"
+  }
+}

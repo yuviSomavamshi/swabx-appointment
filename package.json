@@ -1,0 +1,33 @@
+{
+  "name": "appointment_scheduler",
+  "version": "1.0.0",
+  "description": "This Project is intended to maintain the appointment schedules of the customer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "start:dev": "nodemon ./index.js",
+    "prettify": "prettier --ignore-path \"./.prettierignore\" --write \"./**/*.{js,jsx,json}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://nviera.softether.net/gitlab/healthx/appointment_scheduler.git"
+  },
+  "author": "R-U-S-H-I",
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^8.5.0",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "log4js": "^6.3.0",
+    "mariadb": "^2.5.3",
+    "moment": "^2.29.1",
+    "sequelize": "^6.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.1"
+  }
+}

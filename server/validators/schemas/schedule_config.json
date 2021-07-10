@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "customerid": {
+      "type": "string"
+    },
+    "locationid": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "string"
+    },
+    "endDate": {
+      "type": "string"
+    },
+    "test_interval": {
+      "type": "number",
+      "minimum": 0
+    },
+    "days": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "day": {
+              "type": "string",
+              "enum": ["Staturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+            },
+            "slotStart": {
+              "type": "string"
+            },
+            "slotEnd": {
+              "type": "string"
+            },
+            "slotTime": {
+              "type": "string"
+            },
+            "max_slots": {
+              "type": "string"
+            },
+            "breaks": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "startTime": {
+                      "type": "string"
+                    },
+                    "endTime": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["startTime", "endTime"]
+                }
+              ]
+            }
+          },
+          "required": ["day", "slotStart", "slotEnd", "slotTime", "max_slots", "breaks"]
+        }
+      ]
+    }
+  },
+  "required": ["customerid", "locationid", "startDate", "endDate", "days"]
+}

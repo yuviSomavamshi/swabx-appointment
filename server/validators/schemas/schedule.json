@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "customerid": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "patientid": {
+      "type": "string"
+    },
+    "slot_at": {
+      "type": "string"
+    },
+    "slot_date": {
+      "type": "string"
+    },
+    "s_id": {
+      "type": "string"
+    }
+  },
+  "required": ["customerid", "locationid", "patientid", "slot_at", "slot_date", "s_id"]
+}

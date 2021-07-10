@@ -1,0 +1,48 @@
+version: '3.9'
+services:
+    mariadb:
+        image: mariadb:10.3
+        container_name: mariadb
+        environment:
+            MYSQL_ROOT_PASSWORD: HealthX!Chain123Root
+            MYSQL_DATABASE: breathalyzer
+            MYSQL_USER: app
+            MYSQL_PASSWORD: HealthX!Chain123BLR
+        
+        ports: 
+            - 3306
+        networks:
+            - vpcbr
+        healthcheck:
+            test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+            timeout: 20s
+            retries: 10
+   
+    appointment_scheduler:
+        image: blockchain.azurecr.io/appointment_scheduler
+        container_name: appointment_scheduler
+        networks:
+            - vpcbr
+        build:
+            context: .
+            dockerfile: Dockerfile
+        links:
+            - mariadb
+        ports: 
+            - 8985
+        depends_on:
+            mariadb:
+                condition: service_healthy
+        environment:
+            NODE_ENV: production
+            loglevel: error
+            PORT: 8985
+            MYSQL_HOST: mariadb
+            MYSQL_PORT: 3306
+            MYSQL_USER: appointment
+            MYSQL_PASSWORD: HealthX!Chain123BLR
+            MYSQL_DATABASE: appointments
+
+networks:
+    vpcbr:
+        driver: bridge
