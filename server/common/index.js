@@ -7,7 +7,7 @@ var log4js = require("log4js");
 var logger = log4js.getLogger("default");
 var moment = require("moment");
 const DATE_FORMAT = "YYYY-MM-DD";
-const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Staturday"];
+const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 module.exports = {
   getAllTimeSlots,
   getAvailableSlots,
