@@ -75,7 +75,7 @@ async function fetchAllAvailableSlots(req, res) {
     res.send({ _msg: "Fetched all available slots", _status: 200, data: avaiableslots });
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send({ _msg: error.message, _status: 500 });
+    res.status(500).send({ _msg: "Unable to fetch available slots", _status: 500 });
   }
 }
 
@@ -95,7 +95,7 @@ async function getAllSchedules(req, res) {
     res.send({ _msg: "Fetch all schedules for the day", _status: 200, data: booked_slots });
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send({ _msg: error.message, _status: 500 });
+    res.status(500).send({ _msg: "Unable to fetch all schedules for the day", _status: 500 });
   }
 }
 
@@ -198,12 +198,12 @@ async function createSchedule(req, res) {
     res.send({ _msg: "schedule created sucessfully", _status: 200, data });
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send({ _msg: error.message, _status: 500 });
+    res.status(500).send({ _msg: "Unable to create schedule", _status: 500 });
   }
 }
 
 async function updateStatusForSlot(req, res) {
-  logger.info("got a request ot update status");
+  logger.info("got a request to update status");
   try {
     var id = req.body.id;
     logger.debug("payload received [" + JSON.stringify(req.body) + "]");
@@ -227,7 +227,7 @@ async function updateStatusForSlot(req, res) {
     }
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send({ _msg: error.message, _status: 500 });
+    res.status(500).send({ _msg: "Unable to update status", _status: 500 });
   }
 }
 
@@ -246,7 +246,7 @@ async function cancelSlot(req, res) {
     res.status(200).send({ _msg: "Appointment Cancelled successfully", _status: 200, data });
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send({ _msg: error.message, _status: 500 });
+    res.status(500).send({ _msg: "Unable to cancel appointment", _status: 500 });
   }
 }
 
@@ -257,7 +257,7 @@ async function getSlotById(req, res) {
     res.send({ _msg: "schedule fetched sucessfully", _status: 200, data });
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send({ _msg: error.message, _status: 500 });
+    res.status(500).send({ _msg: "Unable to fetch schedule", _status: 500 });
   }
 }
 
@@ -268,7 +268,7 @@ async function getAllSchedulesForPatient(req, res) {
     res.send({ _msg: "Fetched appointments sucessfully", _status: 200, data: booked_slots });
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send({ _msg: error.message, _status: 500 });
+    res.status(500).send({ _msg: "Unable to fetch all appointments", _status: 500 });
   }
 }
 
@@ -279,7 +279,7 @@ async function upcomingAppointment(req, res) {
     res.send({ _msg: "Fetched appointments sucessfully", _status: 200, data: booked_slots });
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send({ _msg: error.message, _status: 500 });
+    res.status(500).send({ _msg: "Unable to fetch upcoming appointments", _status: 500 });
   }
 }
 

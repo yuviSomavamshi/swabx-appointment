@@ -84,7 +84,7 @@ async function CreateScheduleConfig(req, res) {
     res.send({ _msg: "Schedule configuration created successfully", _status: 200, data });
   } catch (error) {
     logger.error(error);
-    res.status(500).send({ _msg: error.message, _status: 500, data: error });
+    res.status(500).send({ _msg: "Unable to create schedule configuration", _status: 500});
   }
 }
 
@@ -96,7 +96,7 @@ async function GetScheduleConfig(req, res) {
     var data = await ScheudleConfig.findAll({ where: { customerid: customerid, locationid: locationid } });
     res.send({ _msg: "Fetched schedule config successfully", _status: 200, data });
   } catch (error) {
-    res.status(500).send({ _msg: error.message, _status: 500, data: error });
+    res.status(500).send({ _msg: "Unable to fetch schedule configuration", _status: 500});
   }
 }
 
